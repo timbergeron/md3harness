@@ -1,0 +1,147 @@
+{
+  "schema": "md3harness.preview.v1",
+  "complete": true,
+  "quality": {
+    "schema": "md3harness.report.v1",
+    "profile": "qssm",
+    "name": "studio.md3",
+    "passed": true,
+    "frames": 3,
+    "tags": 1,
+    "bytes": 50228,
+    "dimensions": [
+      22.40625,
+      57.59375,
+      60.484375
+    ],
+    "surfaces": [
+      {
+        "name": "bevel_case_0_0",
+        "vertices": 384,
+        "triangles": 188,
+        "shaders": [
+          "progs/studio"
+        ]
+      },
+      {
+        "name": "smooth_cap_0_0",
+        "vertices": 920,
+        "triangles": 440,
+        "shaders": [
+          "progs/studio"
+        ]
+      }
+    ],
+    "textures": {
+      "progs/studio": {
+        "width": 256,
+        "height": 256,
+        "alpha": true,
+        "format": "tga",
+        "path": "progs/studio.tga",
+        "sha256": "e448e5ce1a3ad53d8e4ad98f888c6304606cc2dd8a1107163b6e6fffc79ed553"
+      }
+    },
+    "issues": [],
+    "pose_bounds": [
+      {
+        "min": [
+          -11.203125,
+          -28.796875,
+          1.59375
+        ],
+        "max": [
+          11.203125,
+          28.796875,
+          62.078125
+        ]
+      },
+      {
+        "min": [
+          -10.875,
+          -28.796875,
+          1.59375
+        ],
+        "max": [
+          17.59375,
+          28.796875,
+          62.078125
+        ]
+      },
+      {
+        "min": [
+          -11.203125,
+          -28.796875,
+          1.59375
+        ],
+        "max": [
+          11.203125,
+          28.796875,
+          62.078125
+        ]
+      }
+    ],
+    "model": "studio.md3",
+    "sha256": "f491ca75dbf43de8d7163a40bd065033568c0b3f4ef25ab81738e9438f0dbe77"
+  },
+  "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+  "model_sha256": "f491ca75dbf43de8d7163a40bd065033568c0b3f4ef25ab81738e9438f0dbe77",
+  "progs_sha256": "c73846e13da33992dea7803209e659dad794e1301f892f321464de09290fb612",
+  "bsp_sha256": "8870d561ce40783ae897da4978f2d4a108753c289ef829d36dd2b6a3fefa6fd9",
+  "captures": [
+    {
+      "frame": 0,
+      "view": "front",
+      "file": "pose000-front.png",
+      "sha256": "722ef2cf153438eabdea61133c2d47b2db5e9e58499948ecc99e776c6e7e604a",
+      "foreground_pixels": 134546,
+      "baseline": "pose000-front-baseline.png",
+      "baseline_sha256": "27386fa168602f92fb81e4d757afdd413f88015fd3f0b71355bd31cea05ea4ee"
+    },
+    {
+      "frame": 0,
+      "view": "back",
+      "file": "pose000-back.png",
+      "sha256": "ff0bc29454ce6eb7cb955e94dc30c7794a404a1fd02da1c72eed27883e91f740",
+      "foreground_pixels": 135011,
+      "baseline": "pose000-back-baseline.png",
+      "baseline_sha256": "2a51e59d81d5049ed31440e954d9c149f2308eac9e26ac8ed2e689045daecc68"
+    },
+    {
+      "frame": 0,
+      "view": "quarter",
+      "file": "pose000-quarter.png",
+      "sha256": "82bfd137437db9e693c314c66c8caed8d43e485f6cfc3906edd2fd4a499fd70f",
+      "foreground_pixels": 81791,
+      "baseline": "pose000-quarter-baseline.png",
+      "baseline_sha256": "52f3be1c9589ad714a233bf1fc70b8ad326e9bb8e7b1511bfe695d9fbec8fe7a"
+    },
+    {
+      "frame": 0,
+      "view": "detail",
+      "file": "pose000-detail.png",
+      "sha256": "136d5eb2718e0dcfbb5489e34f7e72d02c82da2f252f0f6b50385024033381ff",
+      "foreground_pixels": 379936,
+      "baseline": "pose000-detail-baseline.png",
+      "baseline_sha256": "b32f8d94e61ddb69fb19f82982beee4127d992b4bd5b4abccd302e3ebe9c81fa"
+    },
+    {
+      "frame": 1,
+      "view": "quarter",
+      "file": "pose001-quarter.png",
+      "sha256": "387749f24e87e8a5ed4b8eb1ba97437d808f6d9c5f50343b1a8ce3e5f08678de",
+      "foreground_pixels": 88533,
+      "baseline": "pose001-quarter-baseline.png",
+      "baseline_sha256": "52f3be1c9589ad714a233bf1fc70b8ad326e9bb8e7b1511bfe695d9fbec8fe7a"
+    },
+    {
+      "frame": 2,
+      "view": "quarter",
+      "file": "pose002-quarter.png",
+      "sha256": "82bfd137437db9e693c314c66c8caed8d43e485f6cfc3906edd2fd4a499fd70f",
+      "foreground_pixels": 81791,
+      "baseline": "pose002-quarter-baseline.png",
+      "baseline_sha256": "52f3be1c9589ad714a233bf1fc70b8ad326e9bb8e7b1511bfe695d9fbec8fe7a"
+    }
+  ]
+}

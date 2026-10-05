@@ -1,0 +1,12 @@
+{
+  "frames": 37,
+  "dimensions": [7.19, 327.19, 103.36],
+  "dimension_tolerance": 0.03,
+  "triangle_budget": 40000,
+  "static_surfaces": ["horizontal_bands", "padded_posts", "tension_cords", "turnbuckles", "antenna_base", "antenna_stripes", "anchor_eyes", "eyelets"],
+  "atlas_regions": [
+    {"surface_prefix": "vertical_cords", "rect": [512, 0, 1024, 256], "mip_level": 6},
+    {"surface_prefix": "horizontal_cords", "rect": [512, 0, 1024, 256], "mip_level": 6},
+    {"surface_prefix": "horizontal_bands", "rect": [0, 0, 512, 512], "mip_level": 6}
+  ]
+}

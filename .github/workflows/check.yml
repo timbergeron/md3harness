@@ -1,0 +1,43 @@
+name: Asset pipeline checks
+on: [push, pull_request]
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+      - run: python examples/beach_net.py --output build/net
+      - run: python -m md3harness check build/net/progs/bv_net.md3 --asset-root build/net --manifest examples/net.contract.json --strict --json build/net-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: md3-quality-${{ matrix.python }}
+          path: build/net-report.json
+  blender:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download official Blender 4.5.10 LTS
+        run: |
+          mkdir -p .tools
+          curl -L --fail -o .tools/blender.tar.xz https://download.blender.org/release/Blender4.5/blender-4.5.10-linux-x64.tar.xz
+          echo '198a4248b38899af661aa9241cebd746394eaddbfafbeb53152440de80b118f7  .tools/blender.tar.xz' | sha256sum -c -
+          tar -xf .tools/blender.tar.xz -C .tools
+      - name: Export and inspect evaluated Blender assets
+        run: |
+          .tools/blender-4.5.10-linux-x64/blender -b --factory-startup --python-exit-code 1 --python tools/blender_fixture.py -- --output build/blender
+          .tools/blender-4.5.10-linux-x64/blender -b build/blender/studio.blend --python-exit-code 1 --python tools/blender_export.py -- --output build/blender/progs/studio.md3 --asset-root build/blender --start 1 --end 3
+          .tools/blender-4.5.10-linux-x64/blender -b build/blender/studio.blend --python-exit-code 1 --python tools/blender_checks.py
+          python -m md3harness check build/blender/progs/studio.md3 --asset-root build/blender --strict --json build/blender-quality.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blender-quality
+          path: build/blender-quality.json

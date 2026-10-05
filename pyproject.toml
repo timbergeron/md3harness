@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md3harness"
+version = "0.1.0"
+description = "MD3 authoring, validation and real-engine asset review for QSS-M"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPL-2.0-or-later"}
+authors = [{name = "timbergeron"}]
+dependencies = []
+
+[project.scripts]
+md3harness = "md3harness.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["md3harness*"]
+
+[tool.setuptools.package-data]
+md3harness = ["qc/*.qc"]
