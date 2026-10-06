@@ -29,3 +29,30 @@ from the game's 249 QC assertions and live rally checks. All **24 core tests
 passed on 2026-10-06**. Earlier Blender/net
 evidence remains the original validation; this follow-up does not claim to rerun
 those engine or Blender jobs.
+
+
+## Anatomical hand production follow-up
+
+The October 6 hand build passed strict validation across **402 poses**, with
+6,808 triangles, two wrist tags and a 512×2048 skin atlas. The [case study](anatomical-hands.md)
+links the exact beach source commit. The [engine gallery](evidence/hands/index.html)
+contains seven actual first-person QSS-M captures, including extended frame 392,
+with model/skin/engine/screenshot hashes. These captures use a fixed 0.05-second
+simulation timestep, 1280×720 and four-sample MSAA. They do not include paired
+empty-studio baseline captures. The full strict report and game verification
+summaries accompany the gallery.
+
+Eight new regressions cover packed batch joining and frame expansion: byte
+identity with direct multi-surface/tagged export, repeated and reordered frames,
+extended indices, frame limits, metadata/topology/material mismatches, malformed
+inputs, alternate valid block layouts and preservation of geometry errors for
+full quality review. All **32 core tests passed on 2026-10-06**. The new helpers
+also [matched the actual six hand batches and their compact exports](evidence/hands/packed-verification.json)
+byte-for-byte, producing the delivered 55,545,052-byte model.
+
+The game's own tests passed four hand regressions and 14 existing asset/launcher
+tests. Its actual QC VM passed 257 gameplay assertions, three live float-serve
+checks and two live receive/set/attack checks. The offline reviewer exercised
+all 32 clips without browser errors. Earlier body/net/Blender evidence remains
+its recorded validation; this follow-up does not claim to rerun those engine
+or Blender jobs.

@@ -1,5 +1,9 @@
 # Lessons from an animated beach athlete
 
+This records the original procedural athlete/arm build. The subsequent
+[anatomical first-person hands](anatomical-hands.md) replace the arm model with
+a 402-pose library and add further rigging, UV and export lessons.
+
 The [volleyball player build](https://github.com/timbergeron/quake-beach-volleyball/commit/faae37e985276f63badbce647872cfe0fbc7ab16)
 used this harness to export an original Norway-inspired male athlete, two kit
 atlases and a separate first-person arm model. The library has 31 clips and

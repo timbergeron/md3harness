@@ -16,6 +16,17 @@ Keep sampled animation topology fixed. Apply topology-generating modifiers befor
 
 For animated characters, review inner elbow/knee folds between key poses as well as at contact. Stable ring bases and consistent split corners help preserve winding and shading through deep bends. Separate first-person camera review from world-model review. The [character animation case study](character-animation.md) covers these failures, compact pose storage, clip contracts and Quake playback timing.
 
+For detailed first-person hands, establish palm/dorsal axes and reflection
+conventions before authoring curls. Check the quantized finger creases and the
+forearm continuation in the actual camera. The [anatomical hand case study](anatomical-hands.md)
+shows why clean attachment rings and a separate forearm UV strip were needed.
+
+For long animations, export validated fixed-topology batches and join their
+packed bytes with `md3harness.packed.combine_batches`;
+`expand_frames` selects or repeats exact samples with new labels. Both check
+layout and frame limits. Run full strict geometry/texture/contract validation
+on the assembled candidate before replacing the delivered model.
+
 ## Treat the atlas as a filtered image
 
 Filtering can mix neighboring materials into a thin feature. On the net, stretching a large atlas rectangle over a millimetre-scale cord selected coarse mips that mixed pale metal and white fiberglass into dark rope. Small interior UV footprints kept the cord dark at playing distance.

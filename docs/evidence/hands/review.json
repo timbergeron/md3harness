@@ -1,0 +1,49 @@
+{
+  "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+  "model_sha256": "328cc74c500233f56ec5403a0a0544595b290fb7a3190a9e44c6408cc3c2d56d",
+  "skin_sha256": "d38c24379e85d135b986f33172746ed023dffd0b28018a8bcac4605a063f4e97",
+  "captures": [
+    {
+      "name": "ready",
+      "frame": 0,
+      "image": "ready.png",
+      "sha256": "c674e45785d6cdbc30e0b0f9e91b9966f5b3d215cbd8dd96148968e038856a7a"
+    },
+    {
+      "name": "deep-dish",
+      "frame": 121,
+      "image": "deep-dish.png",
+      "sha256": "4889937b4754c46dd180a4f6f8df791e1daa41687d618d011ecb61cd8ba84a19"
+    },
+    {
+      "name": "set-release",
+      "frame": 125,
+      "image": "set-release.png",
+      "sha256": "9ec36eb60a4583f0ddf34c8d5b378843855bfa05e0e678146b47e2d5a9825724"
+    },
+    {
+      "name": "float-toss",
+      "frame": 236,
+      "image": "float-toss.png",
+      "sha256": "b52258d1e833bc88e213dc93d2aadaf2dce3d1d7eb712f315577d9ff3b259ad6"
+    },
+    {
+      "name": "float-contact",
+      "frame": 239,
+      "image": "float-contact.png",
+      "sha256": "ba2e5f04f858fa0471a21c989a304987453c0e2cd919cf2929006c86ec24fd3c"
+    },
+    {
+      "name": "cut-inward",
+      "frame": 207,
+      "image": "cut-inward.png",
+      "sha256": "7aa3bf6e0481ad3f0603ca26e267897982e42f9c8dd19fd5ca508749ba5a6db6"
+    },
+    {
+      "name": "cut-away",
+      "frame": 392,
+      "image": "cut-away.png",
+      "sha256": "cdfb74f2adb68e046d170cffd46b716f15c0cfd26c2f7da03bbb9a97374485cd"
+    }
+  ]
+}

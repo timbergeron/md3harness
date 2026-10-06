@@ -9,6 +9,7 @@ It grew out of building the animated beach volleyball net in [quake-beach-volley
 ## What it does
 
 - Deterministic MD3 v15 export with automatic surface splitting at the vertex **and** triangle limits.
+- Packed-frame selection/repetition and fixed-topology batch joining for long animations, without re-encoding geometry.
 - A Blender 4.5 exporter for evaluated meshes, modifiers, sampled animation, material assignments, hard normals, UV seams and `tag_` empties.
 - Binary checks for layout, offsets, indices, limits, every pose's bounds/radius, collapsed faces, winding, attachment transforms and safe shader paths.
 - Asset contracts for dimensions, static parts, pose counts, triangle budgets and atlas protection at a specified mip level.
@@ -16,6 +17,7 @@ It grew out of building the animated beach volleyball net in [quake-beach-volley
 - An isolated QSS-M studio: front, back, quarter and detail captures, additional animation poses, an offline HTML review and a live camera/animation mode.
 - An original, reproducible 37-pose beach net and a Blender fixture that exercise the pipeline.
 - A [389-pose character production case study](docs/character-animation.md), with folded-joint lessons, playback and first-person framing advice, and actual QSS-M render evidence.
+- A [402-pose anatomical hand case study](docs/anatomical-hands.md), covering palm orientation, finger deformation, cropped forearms, skin UVs, bounded exports and first-person QSS-M captures.
 
 The core uses **Python 3.10+ and the standard library**. Blender and Quake tools are optional until you need their respective export/preview paths. No Quake game data or external executables are included.
 

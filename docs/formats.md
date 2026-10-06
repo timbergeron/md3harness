@@ -30,6 +30,27 @@ Every surface has one shader and the same number of poses as the model. All pose
 
 Names are ASCII, fewer than 64 bytes; pose names are fewer than 16 bytes. Shader paths include a game-relative directory and omit extensions. Paths cannot contain traversal, absolute components or backslashes. The writer splits surfaces exceeding 4096 vertices or 8192 triangles; at most 32 resulting surfaces, 1024 poses and 16 tags are supported.
 
+## Packed-frame Python API
+
+`md3harness.packed.combine_batches(batches)` accepts an iterable of MD3 byte
+strings and returns one MD3 byte string. Each batch must share exact model and
+surface metadata, shader records, UVs, triangle indices and attachment names/order.
+Frame labels, bounds, transforms, positions and encoded normals are preserved.
+
+`md3harness.packed.expand_frames(data, indices, names)` returns an MD3 with one
+frame per zero-based integer index and one ASCII name per frame. Selection can
+reorder or repeat samples; the complete packed sample and its attachments are
+copied without decoding/re-encoding geometry. An empty result, invalid index,
+label-count mismatch, invalid label or more than 1,024 output frames is rejected.
+
+Both helpers validate input/output binary layout, canonicalize valid alternative
+block offsets and reject changing attachment topology. They do not perform
+geometry, texture or asset-contract validation. Run `check`/`inspect` on the
+result with the final contract and asset root; reject warnings for strict delivery.
+Use a candidate output so failure preserves the previous model. These operations
+use packed input/output buffers rather than a streaming file writer. See the
+[hand production example](anatomical-hands.md#export-long-pose-libraries-in-bounded-batches).
+
 ## Contract JSON
 
 All fields are optional. Units match the exported scene. Dimensions refer to the complete rest-pose bounds. Prefixes refer to exported surface names, which acquire partition suffixes.
