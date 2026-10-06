@@ -2,6 +2,7 @@ import copy
 import contextlib
 import io
 import json
+from array import array
 from pathlib import Path
 import struct
 import tempfile
@@ -75,6 +76,52 @@ class Pipeline(unittest.TestCase):
         source = scene()
         source["winding"] = "cw"
         self.assertIn("geometry.winding", codes(loads(encode_scene(source))))
+
+    def test_intermediate_fold_winding_is_rejected(self):
+        source = scene()
+        rest = source["surfaces"][0]["poses"][0]
+        folded = copy.deepcopy(rest)
+        folded["positions"][2] = (0, -1, 0)
+        source["frames"] = ["rest", "fold", "return"]
+        source["surfaces"][0]["poses"] = [rest, folded, copy.deepcopy(rest)]
+        model = loads(encode_scene(source))
+        self.assertEqual(model.surfaces[0].pose(0), model.surfaces[0].pose(2))
+        failures = [i for i in check(model)["issues"] if i["code"] == "geometry.winding"]
+        self.assertEqual(len(failures), 1)
+        self.assertEqual((failures[0]["frame"], failures[0]["triangle"], failures[0]["count"]), (1, 0, 1))
+
+    def test_compact_indexed_pose_sequences_roundtrip(self):
+        class Vectors:
+            def __init__(self, values):
+                self.data = array("f", (component for vector in values for component in vector))
+
+            def __len__(self):
+                return len(self.data)//3
+
+            def __getitem__(self, index):
+                if not 0 <= index < len(self):
+                    raise IndexError(index)
+                offset = index*3
+                return tuple(self.data[offset:offset+3])
+
+        source = scene()
+        expected = encode_scene(source)
+        for pose in source["surfaces"][0]["poses"]:
+            for key in ("positions", "normals"):
+                pose[key] = Vectors(pose[key])
+        self.assertEqual(encode_scene(source), expected)
+
+    def test_pose_indices_above_255_roundtrip(self):
+        source = scene()
+        rest = source["surfaces"][0]["poses"][0]
+        source["frames"] = [f"pose{i}" for i in range(389)]
+        source["surfaces"][0]["poses"] = [copy.deepcopy(rest) for _ in source["frames"]]
+        source["surfaces"][0]["poses"][338]["positions"][2] = (0, 2, 0)
+        model = loads(encode_scene(source))
+        self.assertEqual(len(model.frames), 389)
+        self.assertEqual(model.surfaces[0].pose(338)[0][2], (0, 2, 0))
+        self.assertEqual(model.surfaces[0].pose(388)[0][2], (0, 1, 0))
+        self.assertTrue(check(model)["passed"])
 
     def test_changed_static_component_and_dimension_contract(self):
         source = scene()

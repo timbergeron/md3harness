@@ -14,6 +14,8 @@ Split corners at UV seams and hard edges. Apply evaluated object transforms to p
 
 Keep sampled animation topology fixed. Apply topology-generating modifiers before animating if their evaluated output changes between poses. Use skeletal animation, shape keys or stable deformation modifiers to generate the vertex samples; bones are not stored in MD3. Keep attachment empties named `tag_*` and avoid sheared/reflected tag transforms.
 
+For animated characters, review inner elbow/knee folds between key poses as well as at contact. Stable ring bases and consistent split corners help preserve winding and shading through deep bends. Separate first-person camera review from world-model review. The [character animation case study](character-animation.md) covers these failures, compact pose storage, clip contracts and Quake playback timing.
+
 ## Treat the atlas as a filtered image
 
 Filtering can mix neighboring materials into a thin feature. On the net, stretching a large atlas rectangle over a millimetre-scale cord selected coarse mips that mixed pale metal and white fiberglass into dark rope. Small interior UV footprints kept the cord dark at playing distance.
@@ -33,5 +35,7 @@ Visual bounds matter on the server too. A mesh with its origin below the floor c
 ## Keep delivery reproducible
 
 Commit source meshes or generation code, textures, contracts, export settings, reports and representative renders. Keep licensed game files, generated runtime configs, tool executables and build directories out of the repository. Document tools and versions so another artist can rebuild and review the asset.
+
+Stage each export/review in a fresh directory, then verify hashes when copying approved assets into a game or source tree. Avoid overlapping writers to final paths, including children left running after a parent is interrupted. Reuse cached reports only while the model and every referenced texture hash match.
 
 CI runs the core failures and rebuilds the net with strict checks. A separate Blender job tests evaluated animation, hard normals, UV seams, reflections and tags, plus rejection of incompatible animation. Engine rendering requires a local Quake installation and is a separate integration check.

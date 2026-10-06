@@ -15,6 +15,7 @@ It grew out of building the animated beach volleyball net in [quake-beach-volley
 - Texture presence, dimensions and hashes, plus machine-readable quality reports.
 - An isolated QSS-M studio: front, back, quarter and detail captures, additional animation poses, an offline HTML review and a live camera/animation mode.
 - An original, reproducible 37-pose beach net and a Blender fixture that exercise the pipeline.
+- A [389-pose character production case study](docs/character-animation.md), with folded-joint lessons, playback and first-person framing advice, and actual QSS-M render evidence.
 
 The core uses **Python 3.10+ and the standard library**. Blender and Quake tools are optional until you need their respective export/preview paths. No Quake game data or external executables are included.
 

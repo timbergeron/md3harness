@@ -1,0 +1,26 @@
+{
+  "source_commit": "faae37e985276f63badbce647872cfe0fbc7ab16",
+  "captures": [
+    {
+      "stage": "before",
+      "fixture": "play",
+      "file": "view-arms-before.png",
+      "sha256": "c3d89139e115d97607577d4e0058247fa0a88dd5c56c0609de8317b332c79e72",
+      "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+      "progs_sha256": "677ca6839dccbaf040640bd11be4ec01f7e322e2dba191986b75504cd0ff205c",
+      "csprogs_sha256": "7cf7e6896445120a5bc6343b20978411e67a6cc9e14a140dce7c52f0ee556a1c",
+      "hands_sha256": "7372ddab455513e4f6bec50534dbbde0f7494e3b9297fd89ad8917c1a450c212"
+    },
+    {
+      "stage": "after",
+      "fixture": "play",
+      "file": "view-arms-after.png",
+      "sha256": "fc7cc496b47ae827637fd7c2dd62486f6202e2b9b1a85cd471c940fcbcf98469",
+      "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+      "progs_sha256": "677ca6839dccbaf040640bd11be4ec01f7e322e2dba191986b75504cd0ff205c",
+      "csprogs_sha256": "a16423e5967677a9ee6945df57a52cc4f334d1b3397874c3f7d827c3e81a5957",
+      "hands_sha256": "56c6fe9b98914f2292201504dac53b7727ba844f1e314bf2a76426dd1a0772f3"
+    }
+  ],
+  "note": "PNG conversions of actual QSS-M serve-preparation TGA captures; source_commit identifies the final rig."
+}
