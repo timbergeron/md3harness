@@ -1,6 +1,7 @@
 """Real-engine review, isolated from the user's Quake installation."""
 import hashlib
 import html
+import json
 import math
 import os
 from pathlib import Path
@@ -183,7 +184,9 @@ def preview(args):
     args.output = args.output.resolve()
     for name in ("engine", "basedir", "fteqcc", "qbsp", "vis", "light"):
         setattr(args, name, getattr(args, name).resolve())
-    quality = inspect(args.model, args.asset_root)
+    manifest_path = getattr(args, "manifest", None)
+    manifest = json.loads(manifest_path.read_text()) if manifest_path else None
+    quality = inspect(args.model, args.asset_root, manifest)
     if not quality["passed"]:
         raise ValueError("model fails quality checks; run check before preview")
     model = load(args.model)

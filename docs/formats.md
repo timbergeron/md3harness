@@ -28,7 +28,7 @@ Coordinates are already in game units, Z up. UV `v=0` is the top of the image; t
 
 Every surface has one shader and the same number of poses as the model. All poses have the same corner count and shared UV/triangle arrays. Each tag pose contains `{ "name": "tag_hand", "origin": [x,y,z], "axes": [[x,y,z],[x,y,z],[x,y,z]] }`; axes are the tag's local X, Y and Z directions in model space. Tag order and names stay fixed.
 
-Names are ASCII, fewer than 64 bytes; pose names are fewer than 16 bytes. Shader paths include a game-relative directory and omit extensions. Paths cannot contain traversal, absolute components or backslashes. The writer splits surfaces exceeding 4096 vertices or 8192 triangles; at most 32 resulting surfaces, 1024 poses and 16 tags are supported.
+Names are ASCII, fewer than 64 bytes; pose names are fewer than 16 bytes. Shader paths include a game-relative directory and omit extensions. Paths cannot contain traversal, absolute components or backslashes. The default `portable` writer splits surfaces exceeding 4096 vertices or 8192 triangles. Set scene `"profile": "qssm"` or CLI `--profile qssm` for 65,535 vertices per surface and the engine's larger triangle budget. Both profiles keep at most 32 resulting surfaces, 1024 poses and 16 tags. See [practical QSS-M budgets](qssm-limits.md).
 
 ## Packed-frame Python API
 

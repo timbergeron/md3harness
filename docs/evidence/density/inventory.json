@@ -1,0 +1,129 @@
+{
+  "schema": "beachvolley.model-inventory.v1",
+  "models": [
+    {
+      "model": "bv_athlete.md3",
+      "sha256": "8de67bc164d0974c5bdcfb7dc722dacd228a3db17d836cf43b926665a5a98275",
+      "frames": 389,
+      "surfaces": 5,
+      "vertices": 21079,
+      "triangles": 35422,
+      "bytes": 66301452,
+      "packed_pose_bytes": 65597848,
+      "pose_vbo_bytes": 98396772,
+      "textures": {
+        "progs/bv_athlete": {
+          "width": 2048,
+          "height": 2048,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_athlete.tga",
+          "sha256": "c41bc04dbbfb956b092872bfdcd37b41cd178f923efc25dc69c2813bd531edf5"
+        },
+        "progs/bv_kit": {
+          "width": 512,
+          "height": 512,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_kit.tga",
+          "sha256": "96fb8bb50d2de92c1205fce48bdf9a42454a62f363d527a1e57527923ea6e1df"
+        }
+      }
+    },
+    {
+      "model": "bv_athlete_away.md3",
+      "sha256": "8403b186026004523db31eee3a199c8d97ccb93cacfddc458a7c4b2d3aba7525",
+      "frames": 389,
+      "surfaces": 5,
+      "vertices": 21079,
+      "triangles": 35422,
+      "bytes": 66301452,
+      "packed_pose_bytes": 65597848,
+      "pose_vbo_bytes": 98396772,
+      "textures": {
+        "progs/bv_athlete_away": {
+          "width": 2048,
+          "height": 2048,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_athlete_away.tga",
+          "sha256": "7f6ff52558340e925a1fc8794e2213b927dd6bd01c5d93de6265ab837d30f961"
+        },
+        "progs/bv_kit": {
+          "width": 512,
+          "height": 512,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_kit.tga",
+          "sha256": "96fb8bb50d2de92c1205fce48bdf9a42454a62f363d527a1e57527923ea6e1df"
+        }
+      }
+    },
+    {
+      "model": "bv_hands.md3",
+      "sha256": "5d33b1e5c44676b605dad738ab054a51e2089e49df47cf8ccb1517aa03de513a",
+      "frames": 402,
+      "surfaces": 2,
+      "vertices": 12872,
+      "triangles": 21814,
+      "bytes": 41874116,
+      "packed_pose_bytes": 41396352,
+      "pose_vbo_bytes": 62094528,
+      "textures": {
+        "progs/bv_hands": {
+          "width": 512,
+          "height": 2048,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_hands.tga",
+          "sha256": "d38c24379e85d135b986f33172746ed023dffd0b28018a8bcac4605a063f4e97"
+        }
+      }
+    },
+    {
+      "model": "bv_ball.md3",
+      "sha256": "ca3132b7aab94d27db1c83b5c98389b71da00dc61b6d60effcc603f782bdc9c8",
+      "frames": 1,
+      "surfaces": 1,
+      "vertices": 10381,
+      "triangles": 20544,
+      "bytes": 412964,
+      "packed_pose_bytes": 83048,
+      "pose_vbo_bytes": 124572,
+      "textures": {
+        "progs/bv_ball": {
+          "width": 512,
+          "height": 512,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_ball.tga",
+          "sha256": "6777ee0b6131b5360ef3513f891ca6ca8b2ce34048a4a20becd463c5253feb99"
+        }
+      }
+    },
+    {
+      "model": "bv_net.md3",
+      "sha256": "a50b441e58b86941e340a38c9df76aaacd14f5a22b3a7db6c2243f1cfb03cd6a",
+      "frames": 37,
+      "surfaces": 14,
+      "vertices": 49972,
+      "triangles": 88736,
+      "bytes": 16260964,
+      "packed_pose_bytes": 14791712,
+      "pose_vbo_bytes": 22187568,
+      "textures": {
+        "progs/bv_net": {
+          "width": 1024,
+          "height": 1024,
+          "alpha": true,
+          "format": "tga",
+          "path": "progs/bv_net.tga",
+          "sha256": "f47e4ac01316610350bde279e847698e13e6b586dffb4254d509ea86a3c23584"
+        }
+      }
+    }
+  ],
+  "visible_doubles_triangles": 237360,
+  "packed_pose_bytes": 187466808,
+  "pose_vbo_bytes": 281200212
+}

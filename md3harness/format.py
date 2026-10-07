@@ -16,6 +16,14 @@ TAG = struct.Struct("<64s12f")
 SURFACE = struct.Struct("<4s64s10i")
 VERTEX = struct.Struct("<3h2B")
 LIMITS = dict(frames=1024, tags=16, surfaces=32, vertices=4096, triangles=8192, shaders=256)
+QSSM_LIMITS = dict(LIMITS, vertices=65535, triangles=2147483647//3)
+
+def profile_limits(profile):
+    if profile == "portable":
+        return LIMITS
+    if profile == "qssm":
+        return QSSM_LIMITS
+    raise FormatError(f"unknown MD3 limits profile: {profile!r}")
 
 class FormatError(ValueError):
     pass
@@ -97,13 +105,14 @@ class Model:
     surfaces: tuple
     byte_length: int
 
-def loads(data):
+def loads(data, profile="qssm"):
+    limits = profile_limits(profile)
     if len(data) < 108:
         raise FormatError("truncated header")
     ident, version, name, flags, nf, nt, ns, skins, of, ot, os, end = HEADER.unpack_from(data)
     if ident != b"IDP3" or version != 15:
         raise FormatError("expected MD3 IDP3 version 15")
-    if not 1 <= nf <= LIMITS["frames"] or not 0 <= nt <= LIMITS["tags"] or not 1 <= ns <= LIMITS["surfaces"]:
+    if not 1 <= nf <= limits["frames"] or not 0 <= nt <= limits["tags"] or not 1 <= ns <= limits["surfaces"]:
         raise FormatError("frame, tag or surface count exceeds MD3 limits")
     if end != len(data):
         raise FormatError("file end does not match its byte length")
@@ -129,7 +138,7 @@ def loads(data):
         ident, sn, sf, snf, nsh, nv, ntri, tri, sh, uv, xyz, se = SURFACE.unpack_from(data, offset)
         if ident != b"IDP3" or snf != nf:
             raise FormatError("surface ident or frame count mismatch")
-        if not 1 <= nv <= LIMITS["vertices"] or not 1 <= ntri <= LIMITS["triangles"] or not 1 <= nsh <= LIMITS["shaders"]:
+        if not 1 <= nv <= limits["vertices"] or not 1 <= ntri <= limits["triangles"] or not 1 <= nsh <= limits["shaders"]:
             raise FormatError("surface vertex, triangle or shader count exceeds MD3 limits")
         if se < 108 or offset+se > end:
             raise FormatError("invalid surface end")
@@ -146,11 +155,11 @@ def loads(data):
         raise FormatError("unaccounted bytes after the last surface")
     return Model(read_string(name), tuple(frames), tuple(tags), tuple(surfaces), end)
 
-def load(path, max_bytes=128*1024*1024):
+def load(path, max_bytes=128*1024*1024, profile="qssm"):
     path = Path(path)
     if path.stat().st_size > max_bytes:
         raise FormatError(f"model exceeds inspection byte budget ({max_bytes})")
-    return loads(path.read_bytes())
+    return loads(path.read_bytes(), profile)
 
 def partition(surface, max_vertices=4096, max_triangles=8192):
     """Split at triangle boundaries, keeping UVs and every pose aligned."""
@@ -177,8 +186,9 @@ def partition(surface, max_vertices=4096, max_triangles=8192):
     finish()
     return output
 
-def encode_scene(scene):
+def encode_scene(scene, profile=None):
     """Scene v1 uses CCW outward triangles, Z up, and already-scaled units."""
+    limits = profile_limits(profile or scene.get("profile", "portable"))
     if scene.get("schema") != "md3harness.scene.v1" or scene.get("winding", "ccw") not in ("ccw", "cw"):
         raise FormatError("expected md3harness.scene.v1 with ccw or cw winding")
     names = scene["frames"]
@@ -199,7 +209,7 @@ def encode_scene(scene):
             if len(pose["positions"]) != nv or len(pose["normals"]) != nv:
                 raise FormatError("topology/normal count changes between poses")
         shader_path(source["shader"])
-        parts.extend(partition(source))
+        parts.extend(partition(source, max_vertices=limits["vertices"], max_triangles=limits["triangles"]))
     if not 1 <= len(parts) <= 32:
         raise FormatError("export needs 1..32 surfaces after splitting")
     output = []

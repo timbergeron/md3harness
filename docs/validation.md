@@ -56,3 +56,34 @@ checks and two live receive/set/attack checks. The offline reviewer exercised
 all 32 clips without browser errors. Earlier body/net/Blender evidence remains
 its recorded validation; this follow-up does not claim to rerun those engine
 or Blender jobs.
+
+## QSS-M density production follow-up
+
+The October 7 density profile adds explicit portable and QSS-M export limits.
+Four new regressions cover extended surfaces, the actual 65,535-vertex boundary,
+hostile counts, the unchanged 1,024-frame ceiling, and source/CLI overrides.
+All **36 core tests passed**. Portable exports retain their previous limits.
+
+The beach generators use continuous CC0 anatomy, seam-preserving adaptive
+refinement and fixed crease corners selected from a complete pose sweep.
+The final targets are 35,422 triangles per athlete, 21,814 for both first-person
+hands, 20,544 for the ball and 88,736 for net equipment.
+[Engine and memory notes](qssm-limits.md) describe the measured source limits and
+why animation storage and the position grid set the useful density.
+
+The [dense athlete gallery](evidence/density/player/index.html) contains nine
+actual QSS-M views of the complete 389-pose file, with paired empty-studio
+baselines. The [dense hand gallery](evidence/density/hands/index.html) contains
+seven actual first-person views of the complete 402-pose file, including frame
+392. Both kits, hands, ball and all 37 net poses passed strict binary checks
+with no issues. All final model/texture hashes and reports accompany the galleries.
+
+The complete game loaded all five assets together with the default 384 MiB
+heap. Its separate data cache grew to 409 MiB, with 288.4 MiB used/peak and zero
+evictions. The [game summary](evidence/density/game-summary.json) records 257 QC
+assertions, three live float checks, two doubles receive/set/attack fixtures,
+net recoil and equipment views. The game's 22 Python regressions passed.
+The compressed offline reviewers passed 31 body and 32 hand clips with no
+browser errors. Rendering used software OpenGL; this evidence establishes
+loading and appearance rather than a frame-rate promise for other GPUs.
+The density follow-up does not rerun the earlier Blender integration.

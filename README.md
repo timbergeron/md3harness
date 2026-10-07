@@ -9,6 +9,7 @@ It grew out of building the animated beach volleyball net in [quake-beach-volley
 ## What it does
 
 - Deterministic MD3 v15 export with automatic surface splitting at the vertex **and** triangle limits.
+- Explicit portable and [QSS-M density profiles](docs/qssm-limits.md), including 65,535 vertices per surface for QSS-M.
 - Packed-frame selection/repetition and fixed-topology batch joining for long animations, without re-encoding geometry.
 - A Blender 4.5 exporter for evaluated meshes, modifiers, sampled animation, material assignments, hard normals, UV seams and `tag_` empties.
 - Binary checks for layout, offsets, indices, limits, every pose's bounds/radius, collapsed faces, winding, attachment transforms and safe shader paths.

@@ -1,0 +1,52 @@
+{
+  "schema": "md3harness.report.v1",
+  "profile": "qssm",
+  "limits_profile": "qssm",
+  "name": "bv_ball.md3",
+  "passed": true,
+  "frames": 1,
+  "tags": 0,
+  "bytes": 412964,
+  "dimensions": [
+    6.8125,
+    6.8125,
+    6.8125
+  ],
+  "surfaces": [
+    {
+      "name": "ball",
+      "vertices": 10381,
+      "triangles": 20544,
+      "shaders": [
+        "progs/bv_ball"
+      ]
+    }
+  ],
+  "textures": {
+    "progs/bv_ball": {
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "format": "tga",
+      "path": "progs/bv_ball.tga",
+      "sha256": "6777ee0b6131b5360ef3513f891ca6ca8b2ce34048a4a20becd463c5253feb99"
+    }
+  },
+  "issues": [],
+  "pose_bounds": [
+    {
+      "min": [
+        -3.40625,
+        -3.40625,
+        -3.40625
+      ],
+      "max": [
+        3.40625,
+        3.40625,
+        3.40625
+      ]
+    }
+  ],
+  "model": "bv_ball.md3",
+  "sha256": "ca3132b7aab94d27db1c83b5c98389b71da00dc61b6d60effcc603f782bdc9c8"
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "md3harness.preview.v1",
+  "complete": true,
+  "quality": {
+    "schema": "md3harness.report.v1",
+    "profile": "qssm",
+    "limits_profile": "qssm",
+    "name": "bv_ball.md3",
+    "passed": true,
+    "frames": 1,
+    "tags": 0,
+    "bytes": 412964,
+    "dimensions": [
+      6.8125,
+      6.8125,
+      6.8125
+    ],
+    "surfaces": [
+      {
+        "name": "ball",
+        "vertices": 10381,
+        "triangles": 20544,
+        "shaders": [
+          "progs/bv_ball"
+        ]
+      }
+    ],
+    "textures": {
+      "progs/bv_ball": {
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "format": "tga",
+        "path": "progs/bv_ball.tga",
+        "sha256": "6777ee0b6131b5360ef3513f891ca6ca8b2ce34048a4a20becd463c5253feb99"
+      }
+    },
+    "issues": [],
+    "pose_bounds": [
+      {
+        "min": [
+          -3.40625,
+          -3.40625,
+          -3.40625
+        ],
+        "max": [
+          3.40625,
+          3.40625,
+          3.40625
+        ]
+      }
+    ],
+    "model": "bv_ball.md3",
+    "sha256": "ca3132b7aab94d27db1c83b5c98389b71da00dc61b6d60effcc603f782bdc9c8"
+  },
+  "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+  "model_sha256": "ca3132b7aab94d27db1c83b5c98389b71da00dc61b6d60effcc603f782bdc9c8",
+  "progs_sha256": "0c91dcb3e46de6dca1dcf924606a539af4c4c2ccc8271d4bbc1ded7239227f61",
+  "bsp_sha256": "354aaf6e6d03aa1a611cf0a34c178854d79cf7c404b8ddc121a6cd8c665873b9",
+  "captures": [
+    {
+      "frame": 0,
+      "view": "front",
+      "file": "pose000-front.png",
+      "sha256": "2a627e7c6f9523a059fe3d1bbf5ffd7f6a01de3e2078c2dec7d32ab062df01af",
+      "foreground_pixels": 18912,
+      "baseline": "pose000-front-baseline.png",
+      "baseline_sha256": "11c2605002f8693d9394986c82d14fd4ad537619af6643a1762fe30fc6b3a92a"
+    },
+    {
+      "frame": 0,
+      "view": "back",
+      "file": "pose000-back.png",
+      "sha256": "bb1c041561fe917224a1067b31e0f33233127debabc7787aa78354d13e9eafe5",
+      "foreground_pixels": 18999,
+      "baseline": "pose000-back-baseline.png",
+      "baseline_sha256": "178d6f7062d24961600a8fb3cef83bf68ebdd178f20d471e261a8d4c9bd6a4ad"
+    },
+    {
+      "frame": 0,
+      "view": "quarter",
+      "file": "pose000-quarter.png",
+      "sha256": "9cee54324914a8af3afbfa09ca1acc5edd7a9526cb693b6828f0ac82a57063b3",
+      "foreground_pixels": 18939,
+      "baseline": "pose000-quarter-baseline.png",
+      "baseline_sha256": "3cdfbf883fc96c8a63abf7daa34ad6ce5d6e7c5aecfb95040b24e1a8794f042a"
+    },
+    {
+      "frame": 0,
+      "view": "detail",
+      "file": "pose000-detail.png",
+      "sha256": "679e1006006249c04a1848e3a27e2f8d2bcf89570bd64854dffecc8968da0832",
+      "foreground_pixels": 25238,
+      "baseline": "pose000-detail-baseline.png",
+      "baseline_sha256": "ff80147c62be0dae1676917da02c2d790c0dadf2ef89b706f29b15c519c93fb7"
+    }
+  ]
+}

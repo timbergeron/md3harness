@@ -3,7 +3,7 @@ import hashlib
 import math
 from pathlib import Path
 
-from .format import FormatError, shader_path
+from .format import FormatError, LIMITS, shader_path
 from .materials import atlas_safe, image_info, resolve_texture
 from .math3 import cross, dot, sub
 
@@ -104,18 +104,19 @@ def check(model, asset_root=None, manifest=None):
         issue("warning", "budget.triangles", f"{total_triangles} triangles exceed the review budget")
     if asset_root is None:
         issue("warning", "texture.unchecked", "Textures were not inspected; supply an asset root")
-    return dict(schema="md3harness.report.v1", profile="qssm", name=model.name,
+    extended = any(len(s.uv) > LIMITS["vertices"] or len(s.triangles) > LIMITS["triangles"] for s in model.surfaces)
+    return dict(schema="md3harness.report.v1", profile="qssm", limits_profile="qssm" if extended else "portable", name=model.name,
                 passed=not any(i["severity"] == "error" for i in issues), frames=len(model.frames),
                 tags=len(model.tags[0]), bytes=model.byte_length, dimensions=dimensions,
                 surfaces=surfaces, textures=textures, issues=issues,
                 pose_bounds=[dict(min=lo, max=hi) for lo, hi in zip(low, high)])
 
-def inspect(path, asset_root=None, manifest=None):
+def inspect(path, asset_root=None, manifest=None, profile="qssm"):
     from .format import loads
     path = Path(path)
     if path.stat().st_size > 128*1024*1024:
         raise FormatError("model exceeds the 128 MiB inspection budget")
     data = path.read_bytes()
-    report = check(loads(data), asset_root, manifest)
+    report = check(loads(data, profile), asset_root, manifest)
     report.update(model=path.name, sha256=hashlib.sha256(data).hexdigest())
     return report

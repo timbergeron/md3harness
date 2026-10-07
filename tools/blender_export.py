@@ -85,6 +85,7 @@ def extract(args):
 
 def main():
     p = argparse.ArgumentParser(description="Export selected Blender objects to validated QSS-M MD3")
+    p.add_argument("--profile", choices=("portable", "qssm"), default="portable")
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--asset-root", type=Path, required=True)
     p.add_argument("--start", type=int, default=1)
@@ -101,9 +102,10 @@ def main():
     old_frame = bpy.context.scene.frame_current
     try:
         source = extract(args)
+        source["profile"] = args.profile
         if args.scene_json:
             save_json(args.scene_json, source)
-        report = export_scene(source, args.output, args.asset_root)
+        report = export_scene(source, args.output, args.asset_root, profile=args.profile)
         save_json(args.output.with_suffix(".report.json"), report)
         print(f"MD3HARNESS EXPORTED {args.output}: {report['frames']} poses, {report['tags']} tags")
     except Exception as exc:

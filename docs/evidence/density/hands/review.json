@@ -1,0 +1,55 @@
+{
+  "engine_sha256": "fdcaea200f1dbb2a05ffca8edeccab41988ea6d2d218dd72243ef272bb1b8d3d",
+  "model_sha256": "5d33b1e5c44676b605dad738ab054a51e2089e49df47cf8ccb1517aa03de513a",
+  "skin_sha256": "d38c24379e85d135b986f33172746ed023dffd0b28018a8bcac4605a063f4e97",
+  "captures": [
+    {
+      "name": "ready",
+      "frame": 0,
+      "image": "ready.png",
+      "sha256": "7570c9681b4cbd6848fecf7c27e50d8c46158b867e716e83f6e7eefd6bdfaa7f"
+    },
+    {
+      "name": "deep-dish",
+      "frame": 121,
+      "image": "deep-dish.png",
+      "sha256": "c228d2423b4734015b363a3ecce5c1210cb2ba32b7fc9901a4df420b2db22662"
+    },
+    {
+      "name": "set-release",
+      "frame": 125,
+      "image": "set-release.png",
+      "sha256": "7a016e667a4a1ef58965e761912e053462c2517b09283e7a709c73de6028b319"
+    },
+    {
+      "name": "float-toss",
+      "frame": 236,
+      "image": "float-toss.png",
+      "sha256": "eebdee4454c3fefd42e1bfe2faaf5d84da75dfc6224da3cc75af88dc7470a64e"
+    },
+    {
+      "name": "float-contact",
+      "frame": 239,
+      "image": "float-contact.png",
+      "sha256": "b9d65465fd8a60239b7aa4f3f3e442b1d141792ca2d9d66fa1caf23a37389f94"
+    },
+    {
+      "name": "cut-inward",
+      "frame": 207,
+      "image": "cut-inward.png",
+      "sha256": "8ed9798fc7f4d24b61a8dbf1637208347377a348ecd3eb1a44e76908778a609e"
+    },
+    {
+      "name": "cut-away",
+      "frame": 392,
+      "image": "cut-away.png",
+      "sha256": "b6d0893affd855e78850fe9533491f62fa1d61fef273816b404d0662d8f991ef"
+    }
+  ],
+  "schema": "beachvolley.hand-review.v1",
+  "captured_on": "2026-10-07",
+  "frames": 402,
+  "triangles": 21814,
+  "complete": true,
+  "default_heap_mib": 384
+}
