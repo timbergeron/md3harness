@@ -87,3 +87,15 @@ The compressed offline reviewers passed 31 body and 32 hand clips with no
 browser errors. Rendering used software OpenGL; this evidence establishes
 loading and appearance rather than a frame-rate promise for other GPUs.
 The density follow-up does not rerun the earlier Blender integration.
+
+## Texture editing handoff
+
+Four new texture-kit regressions verify shared-atlas UV collection across models,
+top-left UV guide orientation, lossless RGB/RGBA TGA conversion including image
+IDs and bottom/right origins, alpha preservation, PNG passthrough, truncated
+texture rejection and preservation of an existing output directory. The complete
+suite now contains 40 tests. The [texture workflow](texture-authoring.md)
+records the atlas-registration, forearm wrap, sampled-patch and material lessons.
+The game's kit was generated from all five delivered MD3s and its six PNGs were
+compared pixel for pixel with the current TGA skins. This verifies the handoff;
+it does not claim that the proposed new textures have been painted or reviewed.

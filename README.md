@@ -15,6 +15,7 @@ It grew out of building the animated beach volleyball net in [quake-beach-volley
 - Binary checks for layout, offsets, indices, limits, every pose's bounds/radius, collapsed faces, winding, attachment transforms and safe shader paths.
 - Asset contracts for dimensions, static parts, pose counts, triangle budgets and atlas protection at a specified mip level.
 - Texture presence, dimensions and hashes, plus machine-readable quality reports.
+- Editable PNG atlases and SVG UV overlays from the exported models, with a [texture-authoring workflow](docs/texture-authoring.md).
 - An isolated QSS-M studio: front, back, quarter and detail captures, additional animation poses, an offline HTML review and a live camera/animation mode.
 - An original, reproducible 37-pose beach net and a Blender fixture that exercise the pipeline.
 - A [389-pose character production case study](docs/character-animation.md), with folded-joint lessons, playback and first-person framing advice, and actual QSS-M render evidence.
